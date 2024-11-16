@@ -6,8 +6,8 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <title>MEITU Shop</title>
-    <link rel="icon" href="./assets/images/logo2.jpg" type="image/png" />
+    <title>Aurora Shop</title>
+    <link rel="icon" href="./assets/images/logo.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,44 +25,182 @@
     <link href="./css/styles.css" rel="stylesheet" />
     <link href="./css/output.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="scrollbar">
+    <button
+      id="scrollToTopButton"
+      class="fixed top-1/2 right-5 z-[9999] bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </button>
+
     <div id="header" class="sticky top-0 z-[9000]"></div>
+    <div class="overlay"></div>
+    <div class="drawer">
+      <h2 class="text-xl font-bold mb-4">Giỏ hàng</h2>
+      <div
+        id="cart-items"
+        class="overflow-y-scroll max-h-[calc(40vh)] scrollbar"
+      ></div>
+      <div id="cart-total"></div>
+    </div>
     <div class="content">
       <div id="slider" class="h-56 lg:h-[450px] md:h-[300px]"></div>
-      <div class="flex w-[80%] m-auto flex-col my-10">
-        <div class="flex justify-between py-2 items-center">
-          <p class="text-xl-bold">DEAL SỐC</p>
-          <div
-            class="flex items-center text-gray-800 hover:text-red-600 cursor-pointer"
-          >
-            <p class="">Xem thêm</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevrons-right w-5 h-5"
-            >
-              <path d="m6 17 5-5-5-5" />
-              <path d="m13 17 5-5-5-5" />
-            </svg>
+      <div
+        class="w-full py-20 px-8 bg-white lg:gap-0 gap-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1"
+      >
+        <div class="w-full flex gap-4 items-center lg:justify-center">
+          <img
+            width="48"
+            height="48"
+            src="./assets/images/common/home_policy_icon_1.webp"
+            alt="img1"
+          />
+          <div class="flex flex-col gap-2">
+            <p class="text-lg-regular">Miễn phí vận chuyển</p>
+            <p class="text-sm-regular">Áp dụng cho mọi đơn hàng từ 500k</p>
           </div>
         </div>
+        <div class="w-full flex gap-4 items-center lg:justify-center">
+          <img
+            width="48"
+            height="48"
+            src="./assets/images/common/home_policy_icon_2.webp"
+            alt="img1"
+          />
+          <div class="flex flex-col gap-2">
+            <p class="text-lg-regular">Đổi hàng dễ dàng</p>
+            <p class="text-sm-regular">7 ngày đổi hàng vì bất kì lí do gì</p>
+          </div>
+        </div>
+        <div class="w-full flex gap-4 items-center lg:justify-center">
+          <img
+            width="48"
+            height="48"
+            src="./assets/images/common/home_policy_icon_3.webp"
+            alt="img1"
+          />
+          <div class="flex flex-col gap-2">
+            <p class="text-lg-regular">Hỗ trợ nhanh chóng</p>
+            <p class="text-sm-regular">HOTLINE 24/7 : 0877104344</p>
+          </div>
+        </div>
+        <div class="w-full flex gap-4 items-center lg:justify-center">
+          <img
+            width="48"
+            height="48"
+            src="./assets/images/common/home_policy_icon_4.webp"
+            alt="img1"
+          />
+          <div class="flex flex-col gap-2">
+            <p class="text-lg-regular">Thanh toán đa dạng</p>
+            <p class="text-sm-regular">
+              Thanh toán khi nhận hàng, Napas, Visa, Chuyển Khoản
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-[90%] m-auto flex-col my-10">
+        <div class="hidden sm:flex sm:items-center justify-between">
+          <div class="flex h-[56px] items-center gap-2 w-full">
+            <input
+              type="text"
+              placeholder="Tìm kiếm theo tên sản phẩm"
+              class="border border-gray-300 rounded-lg py-2 px-4 block w-[40%] appearance-none leading-normal"
+            />
+            <div
+              class="p-4 text-gray-500 hover:text-gray-900 !rounded-[50%] hover:bg-gray-200 cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-search"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.3-4.3"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="filter-section h-[56px] flex items-center gap-4">
+            <select
+              class="border border-gray-300 rounded-lg py-2 px-4 w-[200px]"
+              id="priceFilter"
+            >
+              <option value="all">Tất cả giá</option>
+              <option value="0-100000">Dưới 100.000₫</option>
+              <option value="100000-500000">100.000₫ - 500.000₫</option>
+              <option value="500000-1000000">500.000₫ - 1.000.000₫</option>
+              <option value="1000000-5000000">1.000.000₫ - 5.000.000₫</option>
+              <option value="5000000">Trên 5.000.000₫</option>
+            </select>
+            <button
+              id="filterButton"
+              class="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700"
+            >
+              Lọc
+            </button>
+          </div>
+        </div>
+        <div class="flex justify-between py-2 items-center">
+          <div class="flex gap-2 justify-center items-center">
+            <p class="text-xl-bold leading-[30px]">ĐANG GIẢM GIÁ</p>
+            <div class="h-[30px] w-[70px]">
+              <img
+                class="w-full h-full object-cover"
+                src="./assets/images/common/sale.gif"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+
         <div
-          id="list-product-hotprice"
           class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-4 gap-y-8"
+          id="product-list-sale"
         ></div>
+        <nav>
+          <ul
+            class="flex w-full justify-center gap-4 mt-8"
+            id="pagination"
+          ></ul>
+        </nav>
       </div>
     </div>
+    <div id="footer"></div>
   </body>
+  <script
+    src="https://kit.fontawesome.com/82448a6f83.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+  ></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/product_detail.js"></script>
+  <script src="./js/product.js"></script>
   <script src="./js/header.js"></script>
+  <script src="./js/footer.js"></script>
   <script
     type="text/javascript"
     id="hs-script-loader"

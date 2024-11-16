@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Về chúng tôi</title>
+    <link rel="icon" href="./assets/images/logo.jpg" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link href="./css/output.css" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+
+    <!-- About us -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <link rel="stylesheet" href="../src/css/aboutUs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="section w-full">
+      <div class="container w-full">
+        <div class="content-section">
+          <div class="header-text">
+            <p
+              class="text-center font-bold transition-all duration-700 hover:tracking-[10px]"
+            >
+              About Us
+            </p>
+            <hr />
+          </div>
+          <div class="flex gap-10">
+            <div class="section--border w-[40%]">
+              <p
+                class="text-display-md-semi-bold font-mono mb-2 tracking-wider"
+              >
+                Aurora
+              </p>
+              <p>
+                Aurora là thương hiệu thời trang hiện đại và thanh lịch, mang
+                đến những trang phục chất lượng cao, tỉ mỉ trong từng chi tiết.
+                Với Aura, bạn không chỉ mặc đẹp mà còn thể hiện cá tính và phong
+                cách sống riêng biệt.
+              </p>
+            </div>
+            <div class="w-[60%] flex flex-col justify-between">
+              <p class="border-gradient">
+                Aurora là thương hiệu thời trang mang phong cách hiện đại và
+                tinh tế, chuyên cung cấp các sản phẩm quần áo chất lượng cao,
+                thiết kế đa dạng và hợp xu hướng. Với mong muốn tôn vinh cá tính
+                riêng của từng khách hàng, Aurora luôn chú trọng từ khâu thiết
+                kế đến chất liệu, cam kết mang đến trải nghiệm mua sắm đẳng cấp
+                và dịch vụ tận tâm.
+              </p>
+              <button
+                class="custom-button"
+                role="button"
+                onclick="window.location.href='/src/index.html'"
+              >
+                <span class="text">Về sản phẩm của chúng tôi</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="box my-20">
+            <div class="items">
+              <div class="items">
+                <div id="store-count" class="number">0</div>
+                <div class="description">Cửa hàng toàn quốc</div>
+              </div>
+              <div class="items">
+                <div id="year-count" class="number">0</div>
+                <div class="description">Năm hình thành & phát triển</div>
+              </div>
+              <div class="items">
+                <div id="brand-count" class="number">0</div>
+                <div class="description">Thương hiệu thời trang</div>
+              </div>
+              <div class="items">
+                <div id="member-count" class="number">0</div>
+                <div class="description">Thành viên nhóm ^^</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contentLast">
+            <div class="slogan">
+              <p><b>Khơi nguồn phong cách, tỏa sáng cá tính.</b></p>
+              <div class="author">Aurora</div>
+            </div>
+            <div class="logo">
+              <div class="titleChild">
+                <span class="text1">Đi là đẹp!</span>
+              </div>
+              <div class="imgGroup">
+                <div class="imgLeft">
+                  <img src="../src/assets/images/aboutUs/pic1.jpg" alt="" />
+                </div>
+                <div class="imgRight">
+                  <img src="../src/assets/images/aboutUs/pic2.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="traiNghiem">
+            <button>
+              <b
+                ><a href="../src/index.html"
+                  >Trải nghiệm mua sắm tại Aurora ngay.</a
+                ></b
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div>
+  </body>
+  <script type="module">
+    import { CountUp } from "https://cdn.skypack.dev/countup.js";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const counters = {
+        store: new CountUp("store-count", 40, { suffix: "+", duration: 4 }),
+        year: new CountUp("year-count", 25, { suffix: "+", duration: 4 }),
+        brand: new CountUp("brand-count", 5, { suffix: "+", duration: 4 }),
+        member: new CountUp("member-count", 6, { duration: 4 }),
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            Object.values(counters).forEach((counter) => counter.start());
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+
+      observer.observe(document.querySelector(".box"));
+    });
+  </script>
+  <script
+    src="https://kit.fontawesome.com/82448a6f83.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/product_detail.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/footer.js"></script>
+</html>

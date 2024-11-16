@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { addDynamicIconSelectors } from "@iconify/tailwind";
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
@@ -30,6 +31,7 @@ module.exports = {
           800: "#182230",
           900: "#101828",
           950: "#0C111D",
+          1000: "#141414",
         },
         dark: {
           25: "#FAFAFA",
@@ -131,6 +133,7 @@ module.exports = {
           1100: "#030A65",
         },
         secondary: {
+          DEFAULT: "#FFF4EA",
           700: "#344054",
         },
         tertiary: {
@@ -138,6 +141,42 @@ module.exports = {
         },
       },
       fontSize: {
+        // *******
+        "title-h1": [
+          "72px",
+          {
+            lineHeight: "82px",
+            fontWeight: "600",
+          },
+        ],
+        "title-h2": [
+          "60px",
+          {
+            lineHeight: "70px",
+            fontWeight: "600",
+          },
+        ],
+        "title-h3": [
+          "48px",
+          {
+            lineHeight: "56px",
+            fontWeight: "600",
+          },
+        ],
+        "title-h4": [
+          "38px",
+          {
+            lineHeight: "48px",
+            fontWeight: "600",
+          },
+        ],
+        "title-h5": [
+          "24px",
+          {
+            lineHeight: "32px",
+            fontWeight: "600",
+          },
+        ],
         "xs-regular": [
           "12px",
           {
@@ -479,5 +518,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    addDynamicIconSelectors({
+      prefix: "icon",
+    }),
+  ],
 };
